@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    scroll-behavior: smooth;
+}
+
+
+header {
+    background-color: #1f1f1f;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+
+nav h1 {
+    position: absolute;
+    left: 5%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+.center{
+    margin: auto;
+    
+}
+
+
+.socials{
+    margin: 0 15px;
+    gap: 20px;
+    position: absolute;
+    left: 85%;
+    
+}
+
+#instagram:hover{
+    content: url('imagens/icons/instagram02.png');
+}
+
+#linkedin:hover{
+    content: url('imagens/icons/linkedin02.png');
+}
+
+.socials li {
+    margin: 0px;
+}
+
+
+nav ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Aplicando gradiente contínuo nas seções */
+body {
+    background: linear-gradient(to bottom, 
+        #282828 0%, #3f3d3d /* Cor da seção "Contato" */
+    );
+}
+
+section {
+    height: 100vh;
+    padding-top: 100px; /* Espaço para o cabeçalho fixo */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    text-align: center;
+}
+
+section h1 {
+    position: absolute;
+    top: 20px; /* Ajusta a posição no topo da seção */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+section h1::before, section h1::after {
+    content: ""; /* Insere conteúdo vazio para as linhas */
+    display: inline-block;
+    width: 100px; /* Largura das linhas */
+    height: 1px; /* Altura das linhas (espessura) */
+    background-color: #f0f0f0; /* Cor das linhas */
+    vertical-align: middle; /* Alinha com o texto */
+    margin: 0 10px; /* Espaço entre o texto e as linhas */
+}
+
+section h1::before {
+    margin-right: 10px;
+}
+
+section h1::after {
+    margin-left: 10px;
+}
+
+
+section p {
+    font-size: 1.2rem;
+    margin-top: 60px; /* Ajusta a posição do conteúdo em relação ao título */
+}
+
+
+#sobre {
+    height: 90vh;
+    top: 60px;/*Gambiarra para que o cabeçalho não corte o título da seção*/
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content:flex-start;
+    overflow: hidden;
+    background-color: #0f0f0f;
+    background-image: url(imagens/PerfilColorido.png);
+    background-repeat: no-repeat;
+    background-position: 80% 30%;
+    
+}
+
+#sobre p {
+    max-width: 500px; /*Delimita o tamanho do paragrafo, para deixar ele fino*/
+    margin-top: 15px; /*Separa um pouco os parágrafos*/
+    margin-left: 150px; /*Posiciona os paragrafos um pouco mais para o centro*/
+    font-size:medium; /*Ajusta o tamanho da fonte dos paragrafos*/
+    opacity: 0;/*Deixa os parágrafos invisíveis para entrar posteiormente*/
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    animation: slideIn 1s forwards; /* Aplica a animação */
+    text-align: justify;
+}
+
+b{
+    color: #ffcc00;
+}
+
+
+/*Faz a animação de entrada dos paragrafos de Sobre*/
+@keyframes slideIn {
+    to {
+        opacity: 1; /* Torna visível */
+        transform: translateX(0); /* Move para a posição original */
+    }
+}
+
+
+.skills-container {
+    display: flex;
+    flex-direction: row; /* Organiza os quadrados na horizontal */
+    justify-content: center; /* Centraliza os quadrados horizontalmente */
+    gap: 20px; /* Espaço entre os quadrados */
+    margin-top: 60px; /* Distância entre o título e os quadrados */
+}
+
+.skill-box {
+    width: 150px; /* Largura do quadrado */
+    height: 150px; /* Altura do quadrado */
+    background-color: #5f5d56; /* Cor de fundo temporária */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.6s ease-in-out; /* Aumenta a duração da transição */
+    position: relative; /*Faz com que a imagem possa ficar centralizada na div*/
+}
+
+.skill-box img {
+    position: absolute; /*Centraliza a imagem na div*/
+    top: 0%;/*Usado apenas para transição ficar suave*/
+    text-align: center;
+    transition: all 0.6s ease-in-out;
+}
+
+.skill-box ul {
+    list-style-type: none;/*retirando o ponto do lado de cada item da lista*/
+    display: block;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.4s ease 0.6s; /* O texto aparecerá após 0.6s */
+    color: #f0f0f0;
+    padding-top: 50px;/*Espaçamento no topo para separar um pouco mais os itens da imagem*/
+    
+}
+
+.skill-box li {
+    margin-bottom: 15px;/*Espaçamento entre os itens da lista*/
+    font-family: Arial, sans-serif;/*Fonte dos itens da lista*/
+    font-size: 16px;/*Tamanho da fonte dos itens da lista*/
+
+}
+
+/*Criando um marcador personalizado para a lista.*/
+.skill-box li::before {
+    content: "•"; /* Mudando o marcardor para um ponto */
+    color: rgb(255, 255, 255);/* Cor do marcador */
+    font-size: 20px;/*Tamanho do Marcador*/
+    padding-right: 10px; /* Espaço entre o marcador e o texto */
+}
+
+
+.skill-box.expanded {
+    width: 300px; /* Expande o quadrado */
+    height: 300px; /* Ajusta a altura quando expandido */
+}
+
+.skill-box.expanded ul {
+    /*display: block; /* Mostra o texto quando o quadrado está expandido */
+    opacity: 1; /* Mostra o texto quando o quadrado está expandido */
+
+}
+
+
+.skill-box.expanded img {
+    top: -29%;/*move o item para a parte superior do quadrado*/
+}
+
+.skill-box:hover {
+    color: #ffcc00;
+    background-color: #ff9900; /* Cor ao passar o mouse (efeito hover) */
+    cursor: pointer;
+}
+
+
+
+#portfolio{
+    height: 120vh;
+}
+
+.port-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; /* Organiza os quadrados na horizontal */
+    justify-content: center; /* Centraliza os quadrados horizontalmente */
+    gap: 20px; /* Espaço entre os quadrados */
+    margin-top: 60px; /* Distância entre o título e os quadrados */
+}
+
+.port-box {
+    width: 330px; /* Largura do quadrado */
+    height: 217px; /* Altura do quadrado */
+    background-color: #5f5d56; /* Cor de fundo temporária */
+    border-radius: 10px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    overflow: hidden; /* Esconde o conteúdo que sai do quadrado */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* Aumenta a duração da transição */
+    position: relative; /*Faz com que a imagem possa ficar centralizada na div*/
+}
+
+.port-box:hover {
+    transform: scale(1.05);
+}
+
+.port-box img{
+    border-radius: 10px;/*Por algum motivo a borda da propria div não está funcionando, talvez seja pq o tamanho da imagem que estou usando é exatamente igual o tamaho da div*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra todo o quadrado */
+    transition: filter 0.3s ease, opacity 0.3s ease; /* Animação para a imagem */
+}
+
+.port-box:hover img {
+    filter: blur(3px);
+    
+}
+
+.port-box p {
+    position: absolute;
+    bottom: -9px; /* Começa fora da parte inferior do quadrado */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.966), rgba(0, 0, 0, 0.144)); /* Fundo semi-transparente */
+    color: white;
+    font-size: 16px;
+    transform: translateY(50px); /* Inicialmente fora da tela (parte inferior) */
+    opacity: 0; /* Invisível */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Animação ao passar o mouse */
+}
+
+.port-box:hover p {
+    transform: translateY(0); /* Volta para a posição original */
+    opacity: 1; /* Fica visível */
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    
+}
+/*--------------------------------------------------------------------------------------------*/
+@media (max-width: 1046px){
+
+    #sobre{
+        background-position: 95% 70%;
+    }
+
+    #habilidades{
+        height: 160vh;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center; /* Centraliza os quadrados horizontalmente */
+        gap: 85px 20px; /* Espaço entre os quadrados */
+        margin-top: 80px; /* Distância entre o título e os quadrados */
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #portfolio{
+        height: 190vb;
+    }
+
+}
+
+/* Media Query para telas menores (ex.: até 768px) */
+@media (max-width: 850px) {
+    nav h1 {
+        display: none;
+    }
+
+    #sobre{
+        background-image: none;  
+    }
+
+    #habilidades{
+        height: 170vh;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center; /* Centraliza os quadrados horizontalmente */
+        gap: 85px 20px; /* Espaço entre os quadrados */
+        margin-top: 80px; /* Distância entre o título e os quadrados */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #portfolio{
+        height: 190vh;
+    }
+    
+}
+
+@media (max-width: 696px){
+
+    nav h1 {
+        display: none;
+    }
+
+    .socials{
+        left: 77%;
+        
+    }
+
+    #sobre{
+        height: 115vh;
+    }
+
+    #sobre p {
+        max-width: 500px; /*Delimita o tamanho do paragrafo, para deixar ele fino*/
+        margin: auto;
+        margin: 20px;
+        margin-left: 25px;
+        font-size:medium; /*Ajusta o tamanho da fonte dos paragrafos*/
+        opacity: 0;/*Deixa os parágrafos invisíveis para entrar posteiormente*/
+        transform: translateX(-100%); /* Começa fora da tela à esquerda */
+        animation: slideIn 1s forwards; /* Aplica a animação */
+        text-align: justify;
+    }
+
+    #habilidades{
+        height: 310vh;
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center; /* Centraliza os quadrados horizontalmente */
+        gap: 40px; /* Espaço entre os quadrados */
+        margin-top: 60px; /* Distância entre o título e os quadrados */
+    }
+
+    .skill-box {
+        margin-top: 45px;
+    }
+
+    .skill-box img {
+        position: absolute; /*Centraliza a imagem na div*/
+        top: 0%;/*Usado apenas para transição ficar suave*/
+        transition: all 0.6s ease-in-out;
+    }
+
+
+
+    footer{
+        margin-top: 650px;
+    }
+}
+
+/*Responsividade para Celulares*/
+@media (max-width: 520px) {
+
+    nav h1 {
+        display: none;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    .center{
+        margin: 0px 10px;
+        
+    }
+
+    .socials{
+        margin: 0 15px;
+        gap: 20px;
+        position: absolute;
+        left: 72%;
+    }
+
+    section {
+        height: 100vh;
+        padding-top: 150px; /* Espaço para o cabeçalho fixo */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Alinha no topo */
+        text-align: center;
+    }
+    
+    section h1 {
+        position: absolute;
+        top: 10px; /* Ajusta a posição no topo da seção */
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    #sobre{
+        height: 100vh;
+        background-image: none;
+    }
+
+    #sobre h1{
+        left: 57%;
+    }
+    #sobre p {
+        max-width: 400px; /*Delimita o tamanho do paragrafo, para deixar ele fino*/
+        
+        font-size:medium; /*Ajusta o tamanho da fonte dos paragrafos*/
+        opacity: 0;/*Deixa os parágrafos invisíveis para entrar posteiormente*/
+        transform: translateX(-100%); /* Começa fora da tela à esquerda */
+        animation: slideIn 1s forwards; /* Aplica a animação */
+        text-align: justify;
+    }
+
+
+    .skills-container {
+        display: grid;
+        flex-direction: row; /* Organiza os quadrados na horizontal */
+        justify-content: center; /* Centraliza os quadrados horizontalmente */
+        gap: 65px; /* Espaço entre os quadrados */
+        margin-top: 60px; /* Distância entre o título e os quadrados */
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .skill-box img {
+        position: absolute; /*Centraliza a imagem na div*/
+        top: 0%;/*Usado apenas para transição ficar suave*/
+        transition: all 0.6s ease-in-out;
+    }
+
+    #portfolio{
+        height: 190vh;
+        margin-top: 150px; /* Gambiarra para separar o começo dessa section com o fim da supeior. Por algum motivo o height não funciona na section #habilidades */
+    }
+
+    .port-box {
+        width: 330px; /* Largura do quadrado */
+        height: 217px; /* Altura do quadrado */
+        background-color: #5f5d56; /* Cor de fundo temporária */
+        border-radius: 10px;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        overflow:visible;
+    }
+
+    .port-box p {
+        position:relative;
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.336), rgba(0, 0, 0, 0.144)); /* Fundo semi-transparente */
+        color: white;
+        font-size: 16px;
+        opacity: 1;
+    }
+
+
+}
+
+
+
+
+
+
+
